@@ -15,7 +15,6 @@
   "dependencies": {
     "async": "2.0.x",
     "body-parser": "1.15.x",
-    "canvas": "1.4.x",
     "connect-redis": "3.1.x",
     "cookie-parser": "1.4.x",
     "express": "4.14.x",
@@ -34,7 +33,6 @@
   "bundledDependencies": [
     "async",
     "body-parser",
-    "canvas",
     "connect-redis",
     "cookie-parser",
     "express",
