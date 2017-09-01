@@ -1,8 +1,6 @@
 (function() {
   'use strict';
 
-  var songTime = 30000; //config.songTime
-
   var $cassettewheels = $('#cassette .wheel')
     , $chat = $('#chat')
     , $chatwrapper = $('#chat-outer-wrapper')
@@ -409,10 +407,10 @@
 
       if (forward) {
         if ($touchplay) {
-          elapsedtime = (songTime / 1000) - Math.round(secleft);
+          elapsedtime = 30 - Math.round(secleft);
         }
         $countdown.text(secleft.toFixed(1));
-        factor = secleft / (songTime / 1000);
+        factor = secleft / 30;
         width = 148 - 148 * factor;
         deg = -360 + 360 * factor;
         offsetleft = 20 + 24 * factor;
@@ -645,9 +643,8 @@
     });
   };
 
-  var loadTrack = function(trackPlayingInfo) {
-    audio.src = trackPlayingInfo.url;
-    audio.currentTime = trackPlayingInfo.startTime;
+  var loadTrack = function(previewUrl) {
+    audio.src = previewUrl;
   };
 
   /**
@@ -718,12 +715,12 @@
       $touchplay.html('<i class="icon-play icon-white"></i> Play');
       $touchplay.removeClass('btn-danger disabled').addClass('btn-success');
     }
-    audio.currentTime = 13.7;
+
     audio.play();
     $guessbox.val('');
     isplaying = true;
     clearInterval(timer);
-    cassetteAnimation(Date.now() + songTime, true);
+    cassetteAnimation(Date.now() + 30000, true);
     updateUsers(data.users);
 
     if (data.counter === 1) {
@@ -895,7 +892,7 @@
       cassetteAnimation(Date.now() + data.timeleft, true);
     }
     else if (data.status === 1) {
-      loadTrack({url: data.previewUrl, startTime: 5});
+      loadTrack(data.previewUrl);
     }
 
     addFeedback(states[data.status]);

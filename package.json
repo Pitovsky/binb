@@ -31,6 +31,25 @@
     "serve-favicon": "2.3.x",
     "uglify-js": "2.7.x"
   },
+  "bundledDependencies": [
+    "async",
+    "body-parser",
+    "canvas",
+    "connect-redis",
+    "cookie-parser",
+    "express",
+    "express-session",
+    "faye-websocket",
+    "forwarded-for",
+    "jade",
+    "nodemailer",
+    "primus",
+    "primus-emitter",
+    "primus-rooms",
+    "redis",
+    "serve-favicon",
+    "uglify-js"
+  ],
   "devDependencies": {
     "JSONStream": "1.1.x"
   }
